@@ -17,6 +17,8 @@ body
     height: 100px;
     width: 600px;
     background-color: gray;
+    display: flex;
+    flex-direction: column;
 }
 .container
 {
@@ -48,4 +50,20 @@ button
 {
     grid-row: 3/4;
     grid-column: 4/5;
+}
+#previous_selection_screen
+{
+    width: 600px;
+    height:  45px;
+    background-color: antiquewhite;
+}
+#current_selection_screen
+{
+    width: 600px;
+    height: 55px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    
 }
