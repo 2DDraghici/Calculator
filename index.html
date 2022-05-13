@@ -12,27 +12,27 @@
     <div class="calculator">
         <div class="display">
             <div id="previous_selection_screen"></div>
-            <div id="current_selection_screen"></div>
+            <div id="current_selection_screen">0</div>
         </div>
         <div class="container">
-            <button class="operator">AC</button>
+            <button class="operator" onclick="resetScreen(); resetPrevScreen()" >AC</button>
             <button class="operator">PRV</button>
             <button class="operator">+/-</button>
-            <button class="digit" id="zero" >0</button>
-            <button class="digit">1</button>
-            <button class="digit">2</button>
-            <button class="digit">3</button>
-            <button class="digit">4</button>
-            <button class="digit">5</button>
-            <button class="digit">6</button>
-            <button class="digit">7</button>
-            <button class="digit">8</button>
-            <button class="digit">9</button>
-            <button class="operator" id="plus">+</button>
-            <button class="operator" id="minus">-</button>
-            <button class="operator" id="product">*</button>
-            <button class="operator" id="divide">/</button>
-            <button class="operator" id="equal">=</button>
+            <button class="digit" data-number id="zero" >0</button>
+            <button class="digit" data-number>1</button>
+            <button class="digit" data-number>2</button>
+            <button class="digit" data-number>3</button>
+            <button class="digit" data-number>4</button>
+            <button class="digit" data-number>5</button>
+            <button class="digit" data-number>6</button>
+            <button class="digit" data-number>7</button>
+            <button class="digit" data-number>8</button>
+            <button class="digit" data-number>9</button>
+            <button class="operator" data-operator id="plus">+</button>
+            <button class="operator" data-operator id="minus">-</button>
+            <button class="operator" data-operator id="product">*</button>
+            <button class="operator" data-operator id="divide">/</button>
+            <button class="operator" onclick="equalsTo()" id="equal">=</button>
             
         </div>
     </div>
