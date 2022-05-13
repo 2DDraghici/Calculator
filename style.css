@@ -55,6 +55,9 @@ button
 {
     width: 600px;
     height:  45px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
     background-color: antiquewhite;
 }
 #current_selection_screen
