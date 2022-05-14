@@ -55,13 +55,7 @@ digits.forEach(button => button.addEventListener('click', () => addNumber(button
 MathematicalOperator.forEach(button => button.addEventListener('click', () => addOperator(button.textContent)))
 digits.forEach(button => button.addEventListener('click', () => console.log(button.textContent)))
 
-// FirstNumber=currentSelectionScreen.textContent
-//     console.log(FirstNumber)
-//     currentSelectionScreen.textContent += operator;
-//     selectedOperator=operator;
-//     console.log(selectedOperator)
-//     previousSelectionScreen.textContent += FirstNumber + ' ' + operator
-//     currentSelectionScreen.textContent =' '
+
 function resetScreen() {
     currentSelectionScreen.textContent = ''
     shouldResetScreen = 0;
@@ -94,4 +88,13 @@ function operate(operator, a, b) {
         default:
             return null
     }
+}
+function equalsTo()
+{
+    if(FirstNumber)
+    SecondNumber = currentSelectionScreen.textContent;
+    let result = operate (selectedOperator , FirstNumber , SecondNumber)
+    FirstNumber = result
+    previousSelectionScreen.textContent = result
+    currentSelectionScreen.textContent = ' '
 }
