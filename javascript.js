@@ -8,6 +8,7 @@ let selectedOperator = 0;
 let shouldResetPrevScreen = 0;
 let shouldResetScreen = 0;
 
+
 function add(a, b) {
     return a + b;
 }
@@ -30,28 +31,53 @@ function addNumber(number) {
     currentSelectionScreen.textContent += number;
 }
 function addOperator(operator) {
-    if (currentSelectionScreen.textContent === "0" || shouldResetScreen == 1)
-        {resetScreen()}
-    FirstNumber=currentSelectionScreen.textContent
-    console.log(FirstNumber)
-    currentSelectionScreen.textContent += operator;
-    selectedOperator=operator;
-    console.log(selectedOperator)
-    previousSelectionScreen.textContent += FirstNumber + operator
-    currentSelectionScreen.textContent =' '
+    if (FirstNumber == 0) {
+        FirstNumber = currentSelectionScreen.textContent
+        console.log( 'first number = ' + FirstNumber)
+        selectedOperator = operator
+        console.log("The operator is " + selectedOperator)
+        previousSelectionScreen.textContent += FirstNumber + ' ' + operator
+        currentSelectionScreen.textContent =''
+
+    }
+    else
+        {SecondNumber = currentSelectionScreen.textContent
+            let result = operate ( selectedOperator, FirstNumber ,SecondNumber)
+            previousSelectionScreen.textContent = result
+            FirstNumber= result;
+            currentSelectionScreen.textContent = ''
+            selectedOperator = operator
+        }
+
+
 }
 digits.forEach(button => button.addEventListener('click', () => addNumber(button.textContent)))
 MathematicalOperator.forEach(button => button.addEventListener('click', () => addOperator(button.textContent)))
 digits.forEach(button => button.addEventListener('click', () => console.log(button.textContent)))
 
-
+// FirstNumber=currentSelectionScreen.textContent
+//     console.log(FirstNumber)
+//     currentSelectionScreen.textContent += operator;
+//     selectedOperator=operator;
+//     console.log(selectedOperator)
+//     previousSelectionScreen.textContent += FirstNumber + ' ' + operator
+//     currentSelectionScreen.textContent =' '
 function resetScreen() {
     currentSelectionScreen.textContent = ''
     shouldResetScreen = 0;
 }
 function resetPrevScreen() {
-   previousSelectionScreen.textContent = ''
+    previousSelectionScreen.textContent = ''
     shouldResetPrevScreen = 0;
+}
+function AllClear()
+{
+    FirstNumber=0
+    selectedOperator =0
+    SecondNumber =0
+    resetPrevScreen(
+    resetScreen()
+    )
 }
 function operate(operator, a, b) {
     a = Number(a)
@@ -68,13 +94,4 @@ function operate(operator, a, b) {
         default:
             return null
     }
-}
-function equalsTo ()
-{
-    SecondNumber= currentSelectionScreen.textContent
-    previousSelectionScreen.textContent = previousSelectionScreen.textContent + SecondNumber
-    let result = operate(selectedOperator , FirstNumber , SecondNumber)
-    currentSelectionScreen.textContent = result
-    shouldResetScreen = 1;
-    let shouldResetPrevScreen = 1;
 }
